@@ -27,7 +27,7 @@ async function main() {
 }
 
 app.get('/',(req,res)=>{
-    res.send("hello world");
+    res.render("start.ejs");
 })
 
 app.get('/listings',async (req,res)=>{
@@ -42,7 +42,7 @@ app.get('/listings/new',(req,res)=>{
     res.render("new.ejs");
 })
 app.post('/listings', async (req,res)=>{
-    console.log(req.body)
+    // console.log(req.body)
     let document=new Listing(req.body.listing)
     await document.save()
     res.redirect("/listings")

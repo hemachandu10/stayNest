@@ -8,9 +8,9 @@ const listingSchema=new mongoose.Schema({
     description:String,
     image:{
         type:String,
-        default:"images\chema-photo-t2vrK9yL2Bg-unsplash.jpg",
+        default:"/images/stayNext.jpg",
         // whem image is not mentioned
-        set:(v) => v === "" ? "images\chema-photo-t2vrK9yL2Bg-unsplash.jpg" : v,
+        set:(v) => v === "" ? "/images/stayNext.jpg" : v,
         // set works when image is give as empty
     },
     price:Number,

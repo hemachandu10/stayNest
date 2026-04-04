@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 const Listing=require("./models/listing");
 
-main().catch(err => console.log(err));
+main().then(()=>console.log("connected")).catch(err => console.log(err));
 
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/stayNest');
@@ -18,7 +18,7 @@ const listings = [
     price: 4200,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?villa,beach&sig=1"
+    image: "https://www.sourcesplash.com/i/random?q=villa,beach&sig=1"
   },
   {
     title: "luxury sea villa",
@@ -26,7 +26,7 @@ const listings = [
     price: 5500,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?luxury,villa&sig=2"
+    image: "https://www.sourcesplash.com/i/random?q=luxury,villa&sig=2"
   },
   {
     title: "cozy beach house",
@@ -34,7 +34,7 @@ const listings = [
     price: 3000,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?beach,house&sig=3"
+    image: "https://www.sourcesplash.com/i/random?q=beach,house&sig=3"
   },
   {
     title: "modern villa",
@@ -42,7 +42,7 @@ const listings = [
     price: 4800,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?modern,villa&sig=4"
+    image: "https://www.sourcesplash.com/i/random?q=modern,villa&sig=4"
   },
   {
     title: "family villa",
@@ -50,7 +50,7 @@ const listings = [
     price: 3500,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?family,home&sig=5"
+    image: "https://www.sourcesplash.com/i/random?q=family,home&sig=5"
   },
   {
     title: "sunset villa",
@@ -58,7 +58,7 @@ const listings = [
     price: 4600,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?sunset,villa&sig=6"
+    image: "https://www.sourcesplash.com/i/random?q=sunset,villa&sig=6"
   },
   {
     title: "budget villa",
@@ -66,7 +66,7 @@ const listings = [
     price: 2500,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?budget,house&sig=7"
+    image: "https://www.sourcesplash.com/i/random?q=budget,house&sig=7"
   },
   {
     title: "premium villa",
@@ -74,7 +74,7 @@ const listings = [
     price: 7000,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?premium,villa&sig=8"
+    image: "https://www.sourcesplash.com/i/random?q=premium,villa&sig=8"
   },
   {
     title: "nature villa",
@@ -82,7 +82,7 @@ const listings = [
     price: 3800,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?nature,villa&sig=9"
+    image: "https://www.sourcesplash.com/i/random?q=nature,villa&sig=9"
   },
   {
     title: "private villa",
@@ -90,7 +90,7 @@ const listings = [
     price: 5200,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?private,villa&sig=10"
+    image: "https://www.sourcesplash.com/i/random?q=private,villa&sig=10"
   },
   {
     title: "holiday villa",
@@ -98,7 +98,7 @@ const listings = [
     price: 4100,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?holiday,villa&sig=11"
+    image: "https://www.sourcesplash.com/i/random?q=holiday,villa&sig=11"
   },
   {
     title: "romantic villa",
@@ -106,7 +106,7 @@ const listings = [
     price: 4500,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?romantic,beach&sig=12"
+    image: "https://www.sourcesplash.com/i/random?q=romantic,beach&sig=12"
   },
   {
     title: "luxury beach villa",
@@ -114,7 +114,7 @@ const listings = [
     price: 8000,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?beach,villa,luxury&sig=13"
+    image: "https://www.sourcesplash.com/i/random?q=beach,villa,luxury&sig=13"
   },
   {
     title: "eco villa",
@@ -122,7 +122,7 @@ const listings = [
     price: 3600,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?eco,home&sig=14"
+    image: "https://www.sourcesplash.com/i/random?q=eco,home&sig=14"
   },
   {
     title: "classic villa",
@@ -130,9 +130,22 @@ const listings = [
     price: 3900,
     location: "vizag",
     country: "india",
-    image: "https://source.unsplash.com/featured/?classic,villa&sig=15"
+    image: "https://www.sourcesplash.com/i/random?q=classic,villa&sig=15"
   }
 ];
 
-Listing.deleteMany({}).then(()=>console.log('preveous data deleted')).catch((err)=>{console.log(err)});
-Listing.insertMany(listings).then(()=>console.log('successful initilize')).catch((err)=>{console.log(err)});
+async function initDB() {
+  try {
+    await Listing.deleteMany({});
+    console.log("previous data deleted");
+
+    await Listing.insertMany(listings);
+    console.log("successful initialize");
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+initDB();
+

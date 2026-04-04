@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staynext</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        *{
+            border: none;
+            margin: none;
+            padding: none;
+        }
+       body {
+            background-image: url("/images/stayNext.jpg");
+            background-size: cover;      
+            background-position: center;  
+            background-repeat: no-repeat; 
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center; 
+            align-items: center;      
+        }
+        .card-img-overlay{
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center; 
+            align-items: center;  
+        }    
+        #st-btn{
+            background-color: rgb(192, 188, 188);
+            opacity: 0.6;
+            border: none;
+        }
+        #st-btn:hover{
+            background-color: black;
+            color: white;
+            opacity: 0px;
+        }
+        #alink{
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card-img-overlay">
+        <a href="/listings" id="alink"><button type="button" class="btn btn-primary btn-lg" id="st-btn">let's Start</button></a>
+    </div>    
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
