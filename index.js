@@ -1,3 +1,5 @@
+require("dotenv").config();//for .env file
+
 const express=require('express');
 const app=express()
 
@@ -18,13 +20,15 @@ const mongoose = require('mongoose');
 
 const Listing=require("./models/listing");
 
-main().catch(err => console.log(err));
+const mongo_url=process.env.MONGO_URL;
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/stayNest');
+  await mongoose.connect(mongo_url);
 
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
+
+main().catch(err => console.log(err));
 
 app.get('/',(req,res)=>{
     res.render("start.ejs");
@@ -88,6 +92,7 @@ app.delete("/listings/:id",async (req,res)=>{
     res.redirect("/listings")
 })
 
-app.listen(8080,()=>{
-    console.log("server is running ...");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT,()=>{
+    console.log(`server is running ... at localhost:${PORT}/ `);
 })
