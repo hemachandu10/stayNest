@@ -1,15 +1,27 @@
 <% layout('/layouts/boilerplate') -%>
 <body>
     <h2>make your changes</h2>
-     <form method="post" action="/listings/<%=listing._id%>?_method=PUT" >
+     <form method="post" action="/listings/<%=listing._id%>?_method=PUT" class="needs-validation" novalidate>
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" name="listing[title]" value="<%=listing.title%>" class="form-control">
+            <input type="text" name="listing[title]" value="<%=listing.title%>" class="form-control" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div id="validationServer03Feedback" class="invalid-feedback">
+                Please provide a valid Title.
+            </div>
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea name="listing[description]"  class="form-control"><%=listing.description%></textarea>
+            <textarea name="listing[description]"  class="form-control" required><%=listing.description%></textarea>
             <!-- <input type="text" name="listing[description]" placeholder="enter description"> -->
+             <div class="valid-feedback">
+                Looks good!
+            </div>
+             <div id="validationServer03Feedback" class="invalid-feedback">
+                Please provide a valid Description.
+            </div>
         </div>
         <div class="mb-3">
             <label for="Image" class="form-label">Image</label>
@@ -17,17 +29,57 @@
         </div>
         <div class="mb-3">
             <label for="Price" class="form-label">Price</label>
-            <input type="text" name="listing[price]" value="<%=listing.price%>" class="form-control">
+            <input type="text" name="listing[price]" value="<%=listing.price%>" class="form-control" required>
+             <div class="valid-feedback">
+                Looks good!
+            </div>
+             <div id="validationServer03Feedback" class="invalid-feedback">
+                Please provide a valid Price.
+            </div>
         </div>
         <div class="mb-3">
             <label for="Location" class="form-label">Location</label>
-            <input type="text" name="listing[location]" value="<%=listing.location%>" class="form-control">
+            <input type="text" name="listing[location]" value="<%=listing.location%>" class="form-control" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+             <div id="validationServer03Feedback" class="invalid-feedback">
+                Please provide a valid Location.
+            </div>
         </div>
         <div class="mb-3">
             <label for="Country" class="form-label">Country</label>
-            <input type="text" name="listing[country]" value="<%=listing.country%>" class="form-control">
+            <input type="text" name="listing[country]" value="<%=listing.country%>" class="form-control" required>
+             <div class="valid-feedback">
+                Looks good!
+            </div>
+             <div id="validationServer03Feedback" class="invalid-feedback">
+                Please provide a valid country.
+            </div>
         </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
+        <div class="mb-3">
+            <label for="Address" class="form-label">Address</label>
+            <input type="text" name="listing[address]" value="<%=listing.address%>" class="form-control" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+             <div id="validationServer03Feedback" class="invalid-feedback">
+                Please provide a valid Address.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="Contact" class="form-label">ContactNumber</label>
+            <input type="text" name="listing[contactNumber]" value="<%=listing.contactNumber%>" class="form-control" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+             <div id="validationServer03Feedback" class="invalid-feedback">
+                Please provide a valid Contact Number.
+            </div>
+        </div>
+         <div class="mb-3">
+             <button type="submit" class="btn btn-dark">Submit</button>
+        </div>
         
       
 </body>

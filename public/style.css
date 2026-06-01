@@ -57,3 +57,8 @@ html, body {
     opacity: 0.2;
     background-color: whitesmoke;
 }
+.review-card{
+    border: 1px solid rgb(59, 58, 58) !important;
+    padding-bottom: 1rem !important;
+    margin-bottom: 2rem !important;
+}
