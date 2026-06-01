@@ -79,9 +79,9 @@ app.use((req,res,next)=>{
 })
 
 //root route
-app.get('/',(req,res)=>{
-    res.render("start.ejs");
-})
+// app.get('/',(req,res)=>{
+//     res.render("start.ejs");
+// })
 //listing routes
 app.use("/listings",listingsRouter)
 //review routes
@@ -100,5 +100,5 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>{
-    console.log(`server is running ... at localhost:${PORT}/ `);
+    console.log(`server is running ... at localhost:${PORT}/listings `);
 });
